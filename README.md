@@ -4,7 +4,7 @@ Some useful Rivet Graphs I've built to do stuff
 
 ## Graphs
 
-* batch_runner: Executes a given graph in parallel with n max workers simulataneously until the queue is completed. The missing parallelization link on Rivet.
+* batch_runner: Executes a given graph in parallel with n max workers simulataneously until the queue is completed. Should be replaced by the "Iterator" node on Rivet 1.7.9
 
 * clean_json: Parses code block or otherwise malformed json code and attempts to return a valid json object.
 
