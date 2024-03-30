@@ -1,0 +1,121 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: c6nVjLV6po9JpCuhnBxXi
+    name: utils/run_python_code
+  nodes:
+    '[-cCF4fEmM7XjO082aJEn_]:text "Text"':
+      data:
+        text: |
+          print(result)
+      outgoingConnections:
+        - output->"Array" VxU0P67U-85sZqAzmLjHW/input2
+      visualData: 722.390431240037/681.4567961907754/330/22//
+    '[-hS9H5tGDHRDAhF0tYWRw]:shellCommand "Shell Command"':
+      data:
+        command: mktemp
+        errorOnNonZeroExitCode: false
+        text: ""
+        useCommandInput: false
+        useWorkingDirectoryInput: false
+        workingDirectory: .
+      outgoingConnections:
+        - output->"Text" Zk9m95Gm1zp1kUs4pO_6t/input
+      visualData: 1105.4885570879433/156.46097010744975/230/4//
+    '[1r2My2lPT-obNBVqNYbSi]:raiseEvent "Raise Event"':
+      data:
+        eventName: script_ready
+        useEventNameInput: false
+      visualData: 2192.764888372118/126.67436260437154/180/37//
+    '[AQBTOftP5Svu34yX6pD4N]:raiseEvent "Raise Event"':
+      data:
+        eventName: script_executed
+        useEventNameInput: false
+      outgoingConnections:
+        - result->"Graph Output" Lf9nAYsAch4d1bajwHyOG/value
+      visualData: 3170.6694316322105/256.32460523597683/180/46//
+    '[D4sTJZ7wYSg-rtsdB10z1]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: result = "Hello World"
+        editor: code
+        id: input
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Array" VxU0P67U-85sZqAzmLjHW/input1
+      visualData: 747.2621133088642/467.11089409221177/330/19//
+    '[Lf9nAYsAch4d1bajwHyOG]:graphOutput "Graph Output"':
+      data:
+        dataType: string
+        id: script_result
+      visualData: 3455.095932909298/252.30444267375648/330/47//
+    '[PCelWYnRI1dW5NwUYzsll]:shellCommand "Shell Command"':
+      data:
+        command: ""
+        errorOnNonZeroExitCode: false
+        useCommandInput: true
+        useWorkingDirectoryInput: false
+        workingDirectory: .
+      visualData: 3257.1029267199474/439.24200181700127/230/45//
+    '[R4FWcNfrOoEWKjYn1lqPV]:writeFile "Write File"':
+      data:
+        baseDirectory: .
+        content: ""
+        path: ""
+        useBaseDirectoryInput: false
+        useContentInput: true
+        usePathInput: true
+      outgoingConnections:
+        - content_out->"Raise Event" 1r2My2lPT-obNBVqNYbSi/data
+      visualData: 1892.2577368461493/355.82362865092966/230/36//
+    '[SzTtXf130KEVuDgG8saTJ]:text "Text"':
+      data:
+        text: rm {{script_path}}
+      outgoingConnections:
+        - output->"Shell Command" PCelWYnRI1dW5NwUYzsll/command
+      visualData: 2847.046345373475/499.544440250306/330/44//
+    '[VFvkku8__VlEfMHQGZE3z]:waitForEvent "Wait For Event"':
+      data:
+        eventName: script_ready
+        useEventNameInput: false
+      outgoingConnections:
+        - outputData->"Run Python Script" pyE5SjTlzd75A6IoNqvvI/scriptPath
+      visualData: 2503.3224463036377/264.3649303604175/180/18//
+    '[VxU0P67U-85sZqAzmLjHW]:array "Array"':
+      data:
+        flatten: true
+        flattenDeep: false
+      outgoingConnections:
+        - output->"Join" tLfn5WW67zJPWZgCExmpm/input1
+      visualData: 1298.2787182780974/487.4839525636451/230/23//
+    '[Zk9m95Gm1zp1kUs4pO_6t]:text "Text"':
+      data:
+        text: "{{input}}"
+      outgoingConnections:
+        - output->"Wait For Event" VFvkku8__VlEfMHQGZE3z/inputData
+        - output->"Wait For Event" onRUGsfX17IkdsMHU7r-y/inputData
+        - output->"Write File" R4FWcNfrOoEWKjYn1lqPV/path
+      visualData: 1444.6909870135828/189.02624872988355/330/5//
+    '[onRUGsfX17IkdsMHU7r-y]:waitForEvent "Wait For Event"':
+      data:
+        eventName: script_executed
+        useEventNameInput: false
+      outgoingConnections:
+        - outputData->"Text" SzTtXf130KEVuDgG8saTJ/script_path
+      visualData: 2493.272039898087/476.4285055175393/180/42//
+    '[pyE5SjTlzd75A6IoNqvvI]:runPythonScript "Run Python Script"':
+      data:
+        arguments: ""
+        scriptPath: ""
+        useScriptPathInput: true
+      outgoingConnections:
+        - output->"Raise Event" AQBTOftP5Svu34yX6pD4N/data
+      visualData: 2875.1874833090174/256.3246052359767/230/17//
+    '[tLfn5WW67zJPWZgCExmpm]:join "Join"':
+      data:
+        flatten: true
+        joinString: "\n"
+      outgoingConnections:
+        - output->"Write File" R4FWcNfrOoEWKjYn1lqPV/content
+      visualData: 1599.7909104446212/486.47891192309/180/25//
