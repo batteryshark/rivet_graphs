@@ -1,0 +1,53 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: xs9_D1ULoxdfUmMKmNzLn
+    name: utils/macos_popup
+  nodes:
+    '[0WqGUNCSvFBwBFXNvAR-8]:graphOutput "Graph Output"':
+      data:
+        dataType: any
+        id: passthrough
+      visualData: 1629/545/330/7//
+    '[1QeI0CTI85cuGJ6Pq38Rt]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: This is a Test
+        id: notification_text
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Text" R2KQ2_qM15XU40Dy9qC2e/notification_Text
+      visualData: 449/514/330/1//
+    '[IuF3_HZPvIh0OJMs2bidS]:graphInput "Graph Input"':
+      data:
+        dataType: any
+        id: passthrough
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Graph Output" 0WqGUNCSvFBwBFXNvAR-8/value
+      visualData: 444/728/330/5//
+    '[R2KQ2_qM15XU40Dy9qC2e]:text "Text"':
+      data:
+        text: osascript -e 'display notification "{{notification_Text}}" with title
+          "{{notification_title}}"'
+      outgoingConnections:
+        - output->"Shell Command" oyo3pjOje4GqFsoHYTJeK/command
+      visualData: 852/423/330/2//
+    '[oyo3pjOje4GqFsoHYTJeK]:shellCommand "Shell Command"':
+      data:
+        command: ""
+        errorOnNonZeroExitCode: false
+        useCommandInput: true
+        useWorkingDirectoryInput: false
+        workingDirectory: .
+      visualData: 1238/408/230/4//
+    '[xA2e0p8ywthuKEXax_NV0]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: Rivet
+        id: notification_title
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Text" R2KQ2_qM15XU40Dy9qC2e/notification_title
+      visualData: 447/332/330/null//
