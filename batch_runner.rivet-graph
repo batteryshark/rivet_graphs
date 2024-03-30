@@ -1,0 +1,176 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: f1ACROSWFLRl4fOSN1qnQ
+    name: utils/batch_runner
+  nodes:
+    '[2sln5gdhPWH5-KK8NfkZ6]:array "Array"':
+      data:
+        flatten: true
+        flattenDeep: false
+      outgoingConnections:
+        - output->"Graph Output" POeqK5A3wTM2dIZEEgszU/value
+      visualData: 2539/476/230/69//
+    '[5zn1kvLr3MM0kVEKk0clw]:number "Number"':
+      data:
+        round: false
+        roundTo: 0
+        value: 0
+      outgoingConnections:
+        - value->"Compare" usXw3pdLapetBRQWp8nmH/a
+      visualData: 3490/1204/230/75//
+    '[6KLlwJop5LwMYhq_n6RQp]:array "Array"':
+      data:
+        flatten: true
+        flattenDeep: false
+      outgoingConnections:
+        - output->"Loop Controller" AubhDq3Vb7WSnFWwLU29G/input2
+        - output->"Raise Event" 8ru-YdGLlw-3SOzhH0-X7/data
+      visualData: 3646/910/230/94//
+    '[8ru-YdGLlw-3SOzhH0-X7]:raiseEvent "Raise Event"':
+      data:
+        eventName: batch_done
+        useEventNameInput: false
+      visualData: 4049/908/180/88//
+    '[AQq6Ji7TNCnBNQVUHMJHd]:graphInput "Graph Input"':
+      data:
+        dataType: graph-reference
+        id: job_func
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Call Graph" uIIhroy-v7QPP3oENXi11/graph
+      visualData: 1414/854/330/67//
+    '[AubhDq3Vb7WSnFWwLU29G]:loopController "Loop Controller"':
+      data:
+        atMaxIterationsAction: break
+        maxIterations: 100
+      outgoingConnections:
+        - break->"Array" 2sln5gdhPWH5-KK8NfkZ6/input1
+        - output1->"Code" XWR-GVkTATjgtB-stmdcX/array
+        - output2->"Array" 6KLlwJop5LwMYhq_n6RQp/input1
+      visualData: 2042/683/280/12//
+    '[F0WDkVnApjYzbCp1KKS7y]:array "Array"':
+      data:
+        flatten: true
+        flattenDeep: false
+      outgoingConnections:
+        - length->"Compare" usXw3pdLapetBRQWp8nmH/b
+      visualData: 3196/1243/230/74//
+    '[POeqK5A3wTM2dIZEEgszU]:graphOutput "Graph Output"':
+      data:
+        dataType: any
+        id: results
+      visualData: 2800/462/330/70//
+    '[V9guyLCr7yz7AFax3WIvN]:extractObjectPath "Extract Object Path"':
+      data:
+        path: $.output.value
+        usePathInput: false
+      isSplitRun: true
+      outgoingConnections:
+        - match->"Array" 6KLlwJop5LwMYhq_n6RQp/input2
+      splitRunMax: 9999
+      visualData: 3306/933/280/93//
+    '[XWR-GVkTATjgtB-stmdcX]:code "Code"':
+      data:
+        code: |
+          // Get the input array and batch count
+          const inputArray = inputs.array.value;
+          const batchCount = inputs.batch_count.value;
+
+          // Split the array into two parts
+          const outputArray = inputArray.slice(0, batchCount);
+          const restArray = inputArray.slice(batchCount);
+
+          return {
+              output: {
+                  type: 'object[]',
+                  value: outputArray
+              },
+              rest: {
+                  type: 'object[]',
+                  value: restArray
+              }
+          };
+        inputNames:
+          - array
+          - batch_count
+        outputNames:
+          - output
+          - rest
+      outgoingConnections:
+        - output->"Call Graph" uIIhroy-v7QPP3oENXi11/inputs
+        - rest->"Array" F0WDkVnApjYzbCp1KKS7y/input1
+        - rest->"Loop Controller" AubhDq3Vb7WSnFWwLU29G/input1
+      visualData: 2545/765/230/68//
+    '[kLDT585O3wdNjtY9tWHSv]:graphInput "Graph Input"':
+      data:
+        dataType: any[]
+        id: jobs
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Loop Controller" AubhDq3Vb7WSnFWwLU29G/input1Default
+      visualData: 1415/658/330/66//
+    '[nJPYr9Dcc8M0lFopmcMmA]:comment "Comment"':
+      data:
+        backgroundColor: rgba(0,0,0,0.05)
+        color: rgba(255,255,255,1)
+        height: 600
+        text: >-
+          #### Batch Runner Input
+
+
+          max_jobs: How many jobs per batch you want to do at the same time until completed.
+
+
+          jobs: Inputs for the selected function must be an object with key/values for target 
+
+          subgraph inputs because of dynamic calling and only one input port:
+
+          ```
+
+          {
+            "somevar": {
+              "type":"string",
+              "value":"{{some_var_value}}"
+            }
+          }
+
+          ```
+
+          Outputs are the same. By Default, the output is just an object/any named 'output'.
+
+
+
+          job_func: The graph reference you're calling.
+      visualData: 662.7821719342718/628.2728681331057/630/95//
+    '[sLeEaktMnRIt3_W6Oc3_z]:graphInput "Graph Input"':
+      data:
+        dataType: number
+        defaultValue: "5"
+        id: max_jobs
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Code" XWR-GVkTATjgtB-stmdcX/batch_count
+      visualData: 1416/447/330/65//
+    '[uIIhroy-v7QPP3oENXi11]:callGraph "Call Graph"':
+      data:
+        useErrorOutput: false
+      isSplitRun: true
+      outgoingConnections:
+        - outputs->"Extract Object Path" V9guyLCr7yz7AFax3WIvN/object
+      splitRunMax: 9999
+      visualData: 3050/947/230/82//
+    '[usXw3pdLapetBRQWp8nmH]:compare "Compare"':
+      data:
+        comparisonFunction: "!="
+      outgoingConnections:
+        - output->"Loop Controller" AubhDq3Vb7WSnFWwLU29G/continue
+      visualData: 3778/1205/190/null//
+    '[ved5H_ddpkqAiXfSLToKt]:array "Output Cache"':
+      data:
+        flatten: true
+        flattenDeep: false
+      outgoingConnections:
+        - output->"Loop Controller" AubhDq3Vb7WSnFWwLU29G/input2Default
+      visualData: 1622/1065/230/64//
