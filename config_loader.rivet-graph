@@ -1,0 +1,84 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: iVJ2ya22Exb7SA5PGSE-7
+    name: utils/config_loader
+  nodes:
+    '[4HfQb30q_19E1EC_DWM1j]:setGlobal "Set Global"':
+      data:
+        dataType: string
+        id: variable-name
+        useIdInput: true
+      isSplitRun: true
+      visualData: 1758/419/230/48//
+    '[7SFY-AHK7L0yJluFz0_07]:code "Explode Object"':
+      data:
+        code: |
+          const keys = Object.keys(inputs.input.value);
+          const values = Object.values(inputs.input.value);
+
+          return {
+              keys: {
+                  type: 'string[]',
+                  value: keys
+              },
+              values: {
+                  type: 'any[]',
+                  value: values
+              }
+          };
+        inputNames:
+          - input
+        outputNames:
+          - keys
+          - values
+      isSplitRun: true
+      isSplitSequential: true
+      outgoingConnections:
+        - keys->"Set Global" 4HfQb30q_19E1EC_DWM1j/id
+        - values->"Set Global" 4HfQb30q_19E1EC_DWM1j/value
+      visualData: 1304/248/230/46//
+    '[Mij0Gk2eBxfP1EttcSMxd]:readFile "Read File"':
+      data:
+        asBinary: false
+        errorOnMissingFile: false
+        path: /Users/batteryshark/Downloads/example.env
+        usePathInput: true
+      outgoingConnections:
+        - content->"dotenv_loader" f-4GZlhE60FvMCUX6NG28/input_content
+      visualData: 506/354/280/38//
+    '[f-4GZlhE60FvMCUX6NG28]:code "dotenv_loader"':
+      data:
+        code: |
+          const lines = inputs.input_content.value.split('\n');
+          const configObject = {};
+
+          lines.forEach(line => {
+              const [key, ...valueParts] = line.split('=');
+              const value = valueParts.join('=').trim();
+              configObject[key.trim()] = value;
+          });
+
+          return {
+              output: {
+                  type: 'object',
+                  value: configObject
+              }
+          };
+        inputNames:
+          - input_content
+        outputNames:
+          - output
+      outgoingConnections:
+        - output->"Explode Object" 7SFY-AHK7L0yJluFz0_07/input
+      visualData: 927/218/230/44//
+    '[sJKqPQdkExefOBmjj-kmY]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: /Users/batteryshark/Downloads/example.env
+        id: env_path
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Read File" Mij0Gk2eBxfP1EttcSMxd/path
+      visualData: 78/329/330/37//
