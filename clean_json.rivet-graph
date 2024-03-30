@@ -1,0 +1,96 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: WLZyyxTGSk9YLigiRLORa
+    name: clean_json
+  nodes:
+    '[-KaxIrFOcOz7AwktDyImQ]:object "Object"':
+      data:
+        jsonTemplate: "{}"
+      outgoingConnections:
+        - output->"Passthrough" XhRSWuS_J435YF5cRGkGd/input2
+      visualData: 1484/1127/230/13//
+    '[0OyvjrRgkUvcqutgelYM3]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        id: dirty_json
+        useDefaultValueInput: true
+      outgoingConnections:
+        - data->"Remove JSON Code Block Tags" ckxZPoFCNu_dEcUfBhMko/input
+      visualData: 253/702/330/3//
+    '[AkDuNECt6ZyPD-tKyRj5w]:raceInputs "Race Inputs"':
+      outgoingConnections:
+        - result->"Graph Output" G0Rpf_HAhBuzm-dGrTXpF/value
+      visualData: 2043/892/330/16//
+    '[G0Rpf_HAhBuzm-dGrTXpF]:graphOutput "Graph Output"':
+      data:
+        dataType: object
+        id: output
+      visualData: 2436/857/330/19//
+    '[O7LPWv38cEwjh2SAYc5D4]:text "Test Value"':
+      data:
+        text: |-
+          ``` json
+
+          {
+              "Hello": "How are you today?
+              this is an excellent test of shitty json parsing.",
+              "GoodBye": "Don't forget to drink your Ovaltine!"
+          }
+          ```
+      outgoingConnections:
+        - output->"Graph Input" 0OyvjrRgkUvcqutgelYM3/default
+      visualData: -256/632/330/22//
+    '[XhRSWuS_J435YF5cRGkGd]:passthrough "Passthrough"':
+      outgoingConnections:
+        - output2->"Race Inputs" AkDuNECt6ZyPD-tKyRj5w/input2
+      visualData: 1841/1012/205/14//
+    '[Ytzv8bFzCe-oOdslgacLi]:extractJson "Extract JSON"':
+      outgoingConnections:
+        - noMatch->"Passthrough" XhRSWuS_J435YF5cRGkGd/input1
+        - output->"Race Inputs" AkDuNECt6ZyPD-tKyRj5w/input1
+      visualData: 1524/734/280/8//
+    '[ckxZPoFCNu_dEcUfBhMko]:code "Remove JSON Code Block Tags"':
+      data:
+        code: >-
+          const cleanedText = inputs.input.value.replace(/```json|```
+          json|```/g, '');
+
+
+          return {
+            output: {
+              type: 'string',
+              value: cleanedText
+            }
+          };
+        inputNames:
+          - input
+        outputNames:
+          - output
+      outgoingConnections:
+        - output->"Remove Unprintable Characters" shMpyV7LY-YC_P3OKw51p/input
+      visualData: 764/568/230/1//
+    '[shMpyV7LY-YC_P3OKw51p]:code "Remove Unprintable Characters"':
+      data:
+        code: |-
+          let cleanJson = inputs.input.value.replace(/[^\x20-\×7E]/g, '');
+          try{
+            JSON.parse(cleanJson);
+          } catch(e){
+            cleanJson = inputs.input.value;
+          }
+
+          return {
+            output:{
+              type: 'string',
+              value: cleanJson
+            }
+          };
+        inputNames:
+          - input
+        outputNames:
+          - output
+      outgoingConnections:
+        - output->"Extract JSON" Ytzv8bFzCe-oOdslgacLi/input
+      visualData: 1057/527/398/7//
