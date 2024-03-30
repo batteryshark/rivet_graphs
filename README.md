@@ -10,5 +10,7 @@ Some useful Rivet Graphs I've built to do stuff
 
 * config_loader: Given a path to a file in 'dotenv' format, read variables and set them as globals.
 
+* macos_popup: Uses shell execution to create a MacOS notification popup (UNSAFE - Requires 'Node' runner)
+
 * run_python_code: Executes input python script and prints "result" variable, returns output. (UNSAFE - Requires 'Node' runner and Python plugin)
 
