@@ -4,7 +4,7 @@ Some useful Rivet Graphs I've built to do stuff
 
 ## Graphs
 
-clean_json: Parses code block or otherwise malformed json code and attempts to return a valid json object.
+* clean_json: Parses code block or otherwise malformed json code and attempts to return a valid json object.
 
-run_python_code: (Requires 'Node' runner and Python plugin) Executes input python script and prints "result" variable, returns output. (UNSAFE)
+* run_python_code: (Requires 'Node' runner and Python plugin) Executes input python script and prints "result" variable, returns output. (UNSAFE)
 
