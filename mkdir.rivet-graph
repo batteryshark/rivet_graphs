@@ -1,0 +1,96 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: OIjzfr_hnzxSM9Q9LHAk2
+    name: fs_utils/mkdir
+  nodes:
+    '[2O68Q0jsraXhQAXkHtaFy]:compare "Compare"':
+      data:
+        comparisonFunction: ==
+      outgoingConnections:
+        - output->"If" pln9aG6FXxFjG8DOKVs9n/if
+      visualData: 314/805/190/34//
+    '[4QmwOQDH4wA_PCXZNaU5r]:boolean "Bool"':
+      data:
+        value: true
+      outgoingConnections:
+        - value->"Compare" 2O68Q0jsraXhQAXkHtaFy/b
+        - value->"Passthrough" O1OjCz6dJ4sm2xk8lr76_/input2
+      visualData: 149/808/166/33//
+    '[5frGQ8WVkCWW184wwFBW5]:text "Text"':
+      data:
+        text: mkdir -p {{path_to_make}}
+      outgoingConnections:
+        - output->"Shell Command" WuHNXPNlEymdtu9bGngrW/command
+      visualData: 841/820/330/52//
+    '[A_xyJBxZCaoXbJ-LvSDZx]:compare "Compare"':
+      data:
+        comparisonFunction: ==
+      outgoingConnections:
+        - output->"Graph Output" xUqcmwqrYOv6JPM7rnpcm/value
+      visualData: 1837/712/190/60//
+    '[O1OjCz6dJ4sm2xk8lr76_]:passthrough "Passthrough"':
+      outgoingConnections:
+        - output2->"Graph Output" bKuBJsRooDbcB55DAiflH/value
+      visualData: 152/999/205/48//
+    '[WuHNXPNlEymdtu9bGngrW]:shellCommand "Shell Command"':
+      data:
+        command: ""
+        errorOnNonZeroExitCode: false
+        useCommandInput: true
+        useWorkingDirectoryInput: false
+        workingDirectory: .
+      outgoingConnections:
+        - exitCode->"Compare" A_xyJBxZCaoXbJ-LvSDZx/a
+      visualData: 1206/803/230/53//
+    '[bKuBJsRooDbcB55DAiflH]:graphOutput "Graph Output"':
+      data:
+        dataType: boolean
+        id: output
+      visualData: 372/1008/330/50//
+    '[dA5TT6iwChvPxAIjnA4_H]:subGraph "Subgraph"':
+      data:
+        graphId: lQxDEky1iNnWr37Dca353
+        useAsGraphPartialOutput: false
+        useErrorOutput: false
+      outgoingConnections:
+        - path_exists->"Compare" 2O68Q0jsraXhQAXkHtaFy/a
+      visualData: 147/687/354/30//
+    '[mIJ6odemgLDRBtT_QJYs8]:number "Number"':
+      data:
+        round: false
+        roundTo: 0
+        value: 0
+      outgoingConnections:
+        - value->"Compare" A_xyJBxZCaoXbJ-LvSDZx/b
+      visualData: 1574/738/230/62//
+    '[mdHzTTiYr-IKRvv09E_Tw]:comment "Comment"':
+      data:
+        backgroundColor: rgba(0,0,0,0.05)
+        color: rgba(255,255,255,1)
+        height: 644
+        text: "##### If the path exists, we don't have anything to do."
+      visualData: 111/601/648/51//
+    '[pln9aG6FXxFjG8DOKVs9n]:if "If"':
+      data:
+        unconnectedControlFlowExcluded: true
+      outgoingConnections:
+        - falseOutput->"Text" 5frGQ8WVkCWW184wwFBW5/path_to_make
+        - output->"Passthrough" O1OjCz6dJ4sm2xk8lr76_/input1
+      visualData: 518/809/155/49//
+    '[xUqcmwqrYOv6JPM7rnpcm]:graphOutput "Graph Output"':
+      data:
+        dataType: boolean
+        id: output
+      visualData: 2073/693/330/57//
+    '[yypshfngaVqDlPFEWw8fd]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: G:\test_rdb\
+        id: path_to_make
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"If" pln9aG6FXxFjG8DOKVs9n/value
+        - data->"Subgraph" dA5TT6iwChvPxAIjnA4_H/input
+      visualData: -334/666/330/29//

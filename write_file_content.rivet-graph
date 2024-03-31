@@ -1,0 +1,58 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: SF0dok_rrV-J-yPTw7sz4
+    name: fs_utils/write_file_content
+  nodes:
+    '[3CnlMx65gyYtQ45MbW9MI]:code "Code"':
+      data:
+        code: |
+          const pathParts = inputs.path.value.split(/[\\\/]/);
+          const filename = pathParts.pop();
+          const basePath = pathParts.join('/');
+          return {
+              base_path: {
+                  type: 'string',
+                  value: basePath
+              },
+              filename: {
+                  type: 'string',
+                  value: filename
+              }
+          };
+        inputNames:
+          - path
+        outputNames:
+          - base_path
+          - filename
+      outgoingConnections:
+        - base_path->"Write File" nHEE7seHwnsONcsmEfzEK/baseDirectory
+        - filename->"Write File" nHEE7seHwnsONcsmEfzEK/path
+      visualData: 1114/456/230/9//
+    '[JmdBHzxcyrXPI8QGwPs-2]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: G:\test_rdb\test_db.json
+        id: file_path
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Code" 3CnlMx65gyYtQ45MbW9MI/path
+      visualData: 643/584/330/1//
+    '[nHEE7seHwnsONcsmEfzEK]:writeFile "Write File"':
+      data:
+        baseDirectory: ""
+        content: ""
+        path: ""
+        useBaseDirectoryInput: true
+        useContentInput: true
+        usePathInput: true
+      visualData: 1534/742/230/11//
+    '[zxjRwLpvpKzmNYPx6H3Wf]:graphInput "Graph Input"':
+      data:
+        dataType: any
+        id: file_content
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Write File" nHEE7seHwnsONcsmEfzEK/content
+      visualData: 649/828/330/13//
