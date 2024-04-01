@@ -1,0 +1,94 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: H0uUn1O-YNMKXgvKGvj0O
+    name: ollama_embedding
+  nodes:
+    '[0Z43QaZebvdvjsFVC90TP]:graphInput "Graph Input"':
+      data:
+        body: ""
+        dataType: string
+        defaultValue: mxbai-embed-large
+        id: selected_model
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Object" SRige-D1y0nM9FnQDQTI3/selected_model
+      visualData: 489/448/330/10//
+    '[5-zfuKXcTTNwH23vEzSYs]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: http://127.0.0.1:11434/api/embeddings
+        id: api_url
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Http Call" kebS9frZwZP9kcQH_CnOG/url
+      visualData: 471/639/330/2//
+    '[7ydB1FChToJogBouRWz9T]:text "Text"':
+      data:
+        text: This is a test
+      outgoingConnections:
+        - output->"Split Text" yOhhJElq0-w2z3t5gHGrx/string
+      visualData: -247.04138126716714/845.7538417886271/330/22//
+    '[Ijd9a4AIcV9UdsDVgx69P]:graphInput "Graph Input"':
+      data:
+        dataType: string[]
+        defaultValue: ""
+        id: inputs
+        useDefaultValueInput: true
+      outgoingConnections:
+        - data->"Object" SRige-D1y0nM9FnQDQTI3/prompt
+      visualData: 451/890/330/9//
+    '[KblzrmtUBmuMhuhCa_xmr]:graphOutput "Graph Output"':
+      data:
+        dataType: vector[]
+        id: embeddings
+      visualData: 2404/676/330/16//
+    '[SRige-D1y0nM9FnQDQTI3]:object "Object"':
+      data:
+        body: ""
+        jsonTemplate: |-
+          {
+            "model": "{{selected_model}}",
+            "prompt": "{{prompt}}"
+          }
+      isSplitRun: true
+      isSplitSequential: true
+      outgoingConnections:
+        - output->"Http Call" kebS9frZwZP9kcQH_CnOG/req_body
+      splitRunMax: 999
+      visualData: 1102/663/230/12//
+    '[kebS9frZwZP9kcQH_CnOG]:httpCall "Http Call"':
+      data:
+        body: ""
+        errorOnNon200: true
+        headers: |-
+          {
+              "Content-Type":"application/json"
+          }
+        method: POST
+        url: ""
+        useBodyInput: true
+        useUrlInput: true
+      isSplitRun: true
+      isSplitSequential: true
+      outgoingConnections:
+        - json->"Extract Object Path" wiBeAaT4GcEKQ7J0dybQW/object
+      splitRunMax: 999
+      visualData: 1535/518/280/13//
+    '[wiBeAaT4GcEKQ7J0dybQW]:extractObjectPath "Extract Object Path"':
+      data:
+        path: $.embedding
+        usePathInput: false
+      isSplitRun: true
+      isSplitSequential: true
+      outgoingConnections:
+        - match->"Graph Output" KblzrmtUBmuMhuhCa_xmr/value
+      visualData: 1951/652/280/15//
+    '[yOhhJElq0-w2z3t5gHGrx]:split "Split Text"':
+      data:
+        delimiter: " "
+        regex: false
+      outgoingConnections:
+        - splitString->"Graph Input" Ijd9a4AIcV9UdsDVgx69P/default
+      visualData: -45/1068/280/21//
