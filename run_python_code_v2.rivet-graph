@@ -1,0 +1,82 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: fLctUD82vuj1REJ--oc7j
+    name: run_python_code
+  nodes:
+    '[74UPc32p4lv6SDX0URApF]:graphOutput "Graph Output"':
+      data:
+        dataType: string
+        id: output
+      visualData: 2550/650/330/18//
+    '[C37l-Oj_dVzVcsGddfJvH]:code "Base64 Script"':
+      data:
+        code: >
+          const base64String =
+          Buffer.from(inputs.input.value).toString('base64');
+
+          return {
+              output: {
+                  type: 'string',
+                  value: base64String
+              }
+          };
+        inputNames:
+          - input
+        outputNames:
+          - output
+      outgoingConnections:
+        - output->"Text" g0kfvOshau5qF0Lfe-YwT/code_base64
+      visualData: 1176/566/230/16//
+    '[IwSwgHWrpihST94lGGPcl]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: python
+        id: python_exec
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Text" g0kfvOshau5qF0Lfe-YwT/python_exec
+      visualData: 423/904/330/8//
+    '[Tf5VTM96i4H1wMM4AJCWM]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        defaultValue: print("Hello World")
+        id: python_script
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Fix Rivet Quotes" zPRXPm_LsZ4OHaei56phE/input
+      visualData: 426/753/330/10//
+    '[ZMmRqrId6gzywb1cKpmBS]:shellCommand "Shell Command"':
+      data:
+        command: ""
+        errorOnNonZeroExitCode: false
+        useCommandInput: true
+        useWorkingDirectoryInput: true
+        workingDirectory: .
+      outgoingConnections:
+        - output->"Graph Output" 74UPc32p4lv6SDX0URApF/value
+      visualData: 2179/616/230/7//
+    '[g0kfvOshau5qF0Lfe-YwT]:text "Text"':
+      data:
+        text: echo "{{code_base64}}" | base64 --decode | {{python_exec}}
+      outgoingConnections:
+        - output->"Shell Command" ZMmRqrId6gzywb1cKpmBS/command
+      visualData: 1696/647/330/5//
+    '[zPRXPm_LsZ4OHaei56phE]:code "Fix Rivet Quotes"':
+      data:
+        code: |
+          const replacedString = inputs.input.value.replace(/[\u201C]/g, '"');
+          return {
+              output: {
+                  type: 'string',
+                  value: replacedString
+              }
+          };
+        inputNames:
+          - input
+        outputNames:
+          - output
+      outgoingConnections:
+        - output->"Base64 Script" C37l-Oj_dVzVcsGddfJvH/input
+      visualData: 847/616/230/15//
