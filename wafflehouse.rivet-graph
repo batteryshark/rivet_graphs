@@ -1,0 +1,1283 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: 0JNo0SeizRXVXZ2H707_m
+    name: wafflehouse
+  nodes:
+    '[98KutXDCfNfdpyNs305P_]:prompt "Prompt"':
+      data:
+        computeTokenCount: true
+        enableFunctionCall: false
+        promptText: >-
+          ## CUSTOMER ORDER ##
+
+
+          I'd like the bacon angus cheeseburger deluxe with a side of hash browns please.
+        text: ""
+        type: user
+        useTypeInput: false
+      outgoingConnections:
+        - output->"Ollama Generate" u6BRydLFKsKqUpLmulVry/messages
+      visualData: 1093/702/280/3//
+    '[JFGX23gEdiwbuNPNUGBWX]:text "Text"':
+      data:
+        text: >
+          Pull-Drop-Mark System Simplified Guide for Employees
+
+
+          Pull: 
+
+          - **Meats**: Pull the specified meat from the refrigerator onto the grill. "Pull one bacon" means three strips of bacon.
+
+          - **Special Orders**: For rare or medium-rare steaks, specify at this time. Otherwise, meat doneness and other specifics are marked later.
+
+          - **Sausage Sandwiches**: Call it "sausage for a sandwich" to prepare a larger patty.
+
+
+          Drop: 
+
+          - **Hashbrowns**: State the number of hashbrowns, indicating if they're scattered or in the ring.
+            - "Drop three hashbrowns scattered" for outside the ring.
+            - If any are in the ring, specify the number, e.g., "Drop three hashbrowns, one in the ring."
+          - **Cooking Preferences**: Include if hashbrowns are "scattered well" or "light". For "steamed" hashbrowns, expect a half-full glass of ice for preparation.
+
+
+          Mark: 
+
+          - **Sandwiches**: Use physical markers to indicate types and specifics of sandwiches. A piece of ham marks bacon additions; a pickle and onion piece(s) mark originals and doubles.
+
+          - **Waffles, Wraps, Melts**:
+            - Wraps are marked like their sandwich counterparts, adding a tortilla.
+            - Melts include grilled bread, cheese (except breakfast sandwiches), and onions if applicable. Mark with the appropriate meat and bread type.
+          - **Hashbrown Toppings**: Specify toppings and any extra instructions during the mark phase.
+
+          - **Unique Orders**: For items with specific preparation methods (e.g., deluxe setups, originals), follow unique marking guidelines provided.
+      outgoingConnections:
+        - output->"Prompt" XEDVBZXpdq279JX79nip2/TRAINING TEXT
+      visualData: 612.9539170506913/466.81720430107526/330/5//
+    '[XEDVBZXpdq279JX79nip2]:prompt "Prompt"':
+      data:
+        computeTokenCount: true
+        enableFunctionCall: false
+        promptText: >
+          ## INSTRUCTION ##
+
+          You are a customer service rep at a local waffle house restaurant trained on the "pull drop mark" system. Given the training below, translate the Customer Order to a Pull Drop Mark Request for the cook.
+
+
+          ## OUTPUT FORMAT ##
+
+          Write the Pull, Drop, and Mark requests for the given order to the cook.
+
+
+          ## OUTPUT EXAMPLE ##
+
+          Pull:
+
+          - Pull two eggs
+
+          - Pull one T-bone steak
+
+
+          Drop:
+
+          - Drop one steamed hash brown
+
+
+          Mark:
+
+          - Mark the T-bone steak as medium rare
+
+          - Mark the eggs as over easy
+
+
+          ## TRAINING ##
+
+
+          {{TRAINING TEXT}}
+        type: system
+        useTypeInput: false
+      outgoingConnections:
+        - output->"Ollama Generate" u6BRydLFKsKqUpLmulVry/system-prompt
+      visualData: 1143/370/280/null//
+    '[YUhdlKICViJDP5AKhaUq3]:text "Original Work"':
+      data:
+        text: |-
+          [Music]
+
+          hello my name is Greg Hall today we're
+          going to discuss the pull drop mark
+          calling system this system is the only
+          approved method for calling in marking
+          and preparing food at Waffle House the
+          pull drop mark Collin system is made up
+          of three basic steps the pull the drop
+          and the mark
+          [Music]
+          well 1/4 the poll refers to the number
+          and type of meats to be cooked
+          pull one bacon for example when instruct
+          the grill operator to pull three strips
+          of bacon from the refrigerator and place
+          it on the grill notice that I said one
+          bacon and not a bacon you must always
+          use an exact number these numbers refer
+          to the number of orders to be cooked and
+          not necessarily the number of pieces of
+          meat while you pull one t-bone when pull
+          one t-bone is called you would pull two
+          pieces of pork chop
+          when pull one porkchop is called because
+          one order of pork chops is actually two
+          chops how well a steak is prepared does
+          not need to be called in at this time
+          unless that steak is rare or medium-rare
+          the cooking instructions will come later
+          in the call in during the mark grill
+          operators go ahead and season all red
+          meats before you move on to the next
+          step one final thing to remember for the
+          pull if you have a sausage sandwich
+          it must be called in sausage for a
+          sandwich so that the two patties can be
+          pressed together to form a large sausage
+          sandwich patty
+          [Music]
+          one hashbrown scattered once a
+          salesperson has visually verified that
+          all the meats have been pulled to the
+          grill or to a plate on top of the cooks
+          board they will say drop to specify how
+          many scoops of hashbrowns to put on the
+          grill and whether they are scattered or
+          in the ring don't worry about any
+          toppings that go into the hashbrowns
+          whether they're double or triple at this
+          point that will come later in the mark
+          if all the hashbrowns are in the ring
+          the salesperson will say drop three
+          hashbrowns in the ring if none of the
+          hashbrowns are in the ring they'll say
+          drop three hashbrowns scattered if some
+          are in the ring and some are scattered
+          they'll only tell you the number that
+          are in the ring for example if they need
+          three hashbrowns and one is in the ring
+          they'll say drop three hashbrowns one in
+          the ring the drop is also a time where
+          the salesperson can let you know if the
+          customer wants the hashbrowns scattered
+          well or scattered light so a sales
+          person may say drop one hashbrowns
+          scattered well and this lets you know
+          that the customer wants their hashbrowns
+          cooked well they may also ask you to
+          drop one hashbrowns steam in that case
+          the sales person will bring you
+          half-full glass of ice and you'll
+          prepare those hashbrowns steamed under
+          the dome according to the Waffle House
+          Way
+          [Music]
+          mark Texas patty melt plate scattered
+          mother covered and peppered once a
+          salesperson has visually confirmed that
+          the meats have been pulled to the grill
+          and hash browns have been dropped they
+          will call in the full order this is
+          called the mark it is at this point that
+          the sales person will call all the
+          details of the order into you including
+          how steaks are to be cooked which hash
+          browns will be doubles or triples and
+          also any toppings that will go into the
+          hash browns this is where the magic
+          marker system begins as the sales person
+          calls in the order it is your job to
+          begin placing markers on the plates
+          using the special code that Waffle House
+          has designed to help you remember
+          exactly how everything is to be prepared
+          we call the system magic because our
+          customers often do not notice the
+          markers on the plates and think you have
+          memorized all of the orders that were
+          being called in in reality you're just
+          using our code to mark the orders so
+          that you can read the plates and get
+          orders prepared quickly and accurately
+          every time
+          Texas patty melt plate scattered
+          smothered covered and pepper thank you
+          now that you've got the marks on the
+          plates it's time for one last step in
+          the pulled drop mark system the callback
+          the salesperson will be watching you as
+          you Martin the plates and also waiting
+          for you to call back the order to make
+          sure you've got it exactly right don't
+          keep them waiting call back the order to
+          them as soon as you get it marked so
+          that they can get back to taking care of
+          the customer and you can get back to
+          cooking the food okay now that you
+
+          understand the basics of the pull drop
+          mark system I'll talk you through the
+          most common marks and show you how to
+          mark
+          [Music]
+          Waffle House is one of the world's
+          leading server of eggs so why don't we
+          talk about them first all of our egg
+          breakfasts are automatically served with
+          grits and white toast a customer may
+          choose to have a biscuit or possibly
+          wheat raisin or Texas toast instead and
+          can also substitute hashbrowns sliced
+          tomatoes or oatmeal for the grits let's
+          start off by marking an order scramble
+          simply place a right-side-up jelly pack
+          vertically in the bottom position of the
+          plate the jelly pack represents two eggs
+          which we call an order and the location
+          of the plate tells us that they are
+          scrambled with the plate marked like
+          this the customer is getting an order of
+          scrambled eggs with white toast in grits
+          if the customer would rather have
+          hashbrowns you simply add a few shreds
+          of hash browns to the plate for tomatoes
+          instead of grits simply add a slice of
+          tomato and for oatmeal instead of grits
+          simply add a napkin
+          with a brown sugar pack on top of it if
+          a customer wants their grits to be
+          served in a bowl you would indicate that
+          by placing a napkin on the plate as all
+          bowls on a plate must be served with a
+          napkin underneath to prevent sliding in
+          this order if the customer wants wheat
+          toast
+          we simply flip the jelly pack over to
+          indicate wheat we use a pack of apple
+          butter if the customer wants raisin
+          toast if the customer wants a slice of
+
+          Texas toast or a biscuit instead mark
+          the eggs with a jelly pack and place a
+          slice of Texas toast or a biscuit on the
+          plate to remind you that they prefer to
+          have Texas toast or a biscuit instead
+          some folks like to have their toast
+          unbuttered or dry in this case we have a
+          special mark to remind us to hold the
+          butter easily enough it's a butter
+          packet underneath the jelly packet like
+          this so what if a customer wants double
+          toast easy mark the eggs and then put an
+          additional jelly pack beside the egg
+          marker to indicate the extra order of
+          toast like this now that we've learned
+          some of the basics for marking eggs
+          let's look at some other
+          to keep in mind when marking egg orders
+          while most customers order two eggs
+          occasionally a customer may only want a
+          single egg in that case we'll mark the
+          egg in the appropriate position to show
+          how the egg is cooked and then placed a
+          ketchup pack below it in that case we'll
+          mark the egg in the appropriate position
+          to show how the egg is cooked and then
+          place a ketchup packet here you can see
+          that I've marked a single over light
+          breakfast in other cases a customer may
+          be hungry and might want three eggs to
+          mark a triple you'll mark the eggs with
+          the jelly pack in the appropriate
+          position and include a mustard pack
+          below the jelly pack here's an example
+
+          of how to mark a triple scramble if the
+          jelly pack indicates two eggs and how
+          might you mark the plate if a customer
+          wants four eggs that's right
+          you use two jelly pack stacked on top of
+          each other like this here's the mark
+          four four over medium one of those
+          popular ways to have eggs at the Waffle
+          House is scrambled so let's talk about
+          different ways to mark scrambled eggs
+          the mark for our signature scrambled
+          eggs with cheese is simple first mark
+          the eggs as scrambled like this and then
+          simply add slices of cheese it is
+          important to remember that the customer
+          gets one slice of cheese for each egg so
+          if the customer wants two eggs they get
+          two slices of cheese to make this a
+          triple scramble cheese you add the
+          mustard pack below the jelly pack to
+          make it a triple and add a third slice
+          of cheese you also want to tear off a
+
+          small corner of the cheese and place it
+          on the top of the marker to help you
+          remember that it comes with cheese if a
+          customer wants their egg scramble light
+          so they're a little runny mark the
+          scrambled eggs and include an
+          upside-down Mayo pack to indicate light
+          and remember to remove the marker before
+          you take the plate to the customer
+          well eggs are similar only you turn the
+          Mayo pack right-side up to show that
+          they want the scrambled eggs to be
+          cooked well next we'll look at how to
+
+          mark over light over medium and over
+          well eggs no Dover light is marked with
+          the jelly pack on the left side of the
+          plate like this an order over medium is
+          logically right in the middle of the
+          plate and an order of a well is all the
+          way to the right side of the plate
+          notice that the level of doneness for
+          the eggs increases from left to right
+          let's look at the last few types of eggs
+          available for the waffle house we refer
+          to sunny-side up eggs simply as up and
+          mark them by placing the marker up on
+          the top of the plate like this
+          occasionally a customer may ask for
+          their eggs to be basted which means
+          they're partially cooked on the grill
+          the mark for this is here just below the
+          up egg position poached eggs are another
+          less common order and these eggs are
+          made by cooking the egg whites and yolks
+          in boiling water the mark propos'd is
+          between the scrambled and over-medium
+          positions sometimes a customer may not
+          want the toast grits or anything else
+          other than their eggs these options are
+          very easy to mark here I'll mark an
+
+          order over well hold the grits notice
+
+          that I used a nine-inch waffle plate but
+          still mark the eggs the same way as if
+          it were on a platter this slightly
+          smaller plate is a visual reminder that
+          the customer doesn't want grits can you
+          guess how to mark those same over weigh
+          legs on the side that's right you'd use
+          the same marker only you'd place it on a
+          small plate to remind you that they do
+          not want toast or grits finally if a
+          customer wants to hold the toast you
+          simply place a butter knife on the plate
+
+          these rules for hold the grits hold the
+          toast and on the side apply to all egg
+          orders including omelets you may have
+          asked yourself why I made sure to keep
+          the jelly packs vertical when marking
+          the egg breakfast that's because if I
+          turn the pack horizontally like this it
+          means that this is now the mark for an
+          omelet there are four positions on the
+          plate to mark an omelet ham sausage
+          bacon and plain I'm going to show you an
+          easy way to remember them a horizontal
+          pack in the number one position here at
+          the top of the plate represents ham you
+          can remember ham is number one because a
+          side order of ham comes with one slice a
+          packet here on the right side in the
+          number two position is a sausage omelet
+          - sausage patties come per order and the
+          marker is in the number two position the
+          number three position is used to mark a
+          bacon omelet three strips in an order
+          and a mark in the number three position
+          the plain position is the only one left
+          and it's in the number four position
+          here on the left side of the plate
+          examples of omelettes that have a mark
+          in the number four position could be
+          omelets with no meat in them such as
+          cheese omelet or a mushroom omelet these
+          are marked using a horizontal jelly
+          packet in the number four position and a
+          piece of the corresponding ingredient
+          here you can see a cheese omelet also
+          the Fiesta omelet which is indicated by
+          a horizontal jelly pack with a right
+          side up salad dressing
+          pack underneath and a cheese steak
+
+          omelet which is marked with the right
+          side up ketchup packet two slices of
+          cheese and a jelly pack in the number
+          four position
+          [Music]
+
+          waffles are our namesake so of course we
+          need to learn how to mark them correctly
+          a regular waffle is marked using a
+          right-side up buttercup on the cooks
+          board to mark a pecan waffle simply turn
+          the Buttercup over like this chocolate
+          chip waffles are another favorite and
+          are easy to mark simply mark a regular
+          waffle and place a few pieces of
+          chocolate chip on top of the marker
+          sometimes a customer wants their waffle
+          lighter dark so we need to mark them
+          accordingly we marked the light and the
+          dark waffles the same way we marked the
+          light or well scrambled eggs using an
+          upside-down Mayo pack for light and a
+          right side up Mayo pack for dark looking
+          at the pack may help you remember which
+          is light and which is dark notice the
+          upside down has no text and is lighter
+          in color the label side looks darker
+          because of the text on it for those
+          hungry customers we offer a double
+          waffle which is marked by stacking the
+          butter cups on top of each other like
+          this finally if a sales person calls in
+          a waffle to go use it to go syrup packet
+          to remind you that it goes in it to go
+          play
+          [Music]
+
+          now let's talk about our breakfast
+          sandwiches just like omelettes these
+          sandwiches have the same four positions
+          ham sausage bacon and plain to mark a
+
+          sandwich place to pickle slices in the
+          appropriate position here you can see I
+          put two pickle slices in the number
+          three position which tells me this is a
+          bacon sandwich if I add a slice of
+          cheese to the plate I know this is a
+          bacon cheese sandwich to make this a
+          bacon egg and cheese sandwich I'll add
+          this right side up Mayo packet to the
+          right side of the plate
+          don't let this Mayo pack confuse you as
+          long as you see two pickles on the plate
+          you know this is a sandwich when marking
+          a sandwich
+          this Mayo pack and pickles means a
+          sandwich with eggs
+          if a customer wanted the eggs on their
+          sandwich to be scrambled instead of the
+          standard over well egg I'd move this
+          Mayo pack down to the bottom of the
+          plate to show that the egg is scrambled
+          so how would a market if the customer
+          wanted an egg and cheese sandwich that's
+          right I would put two pickles in the
+          plain position to show that there's no
+          meat add the slice of cheese and put the
+          Mayo pack here on the right side to show
+          that the egg is cooked over well what if
+          the customer wants to have a sandwich on
+          a biscuit or Texas toast the Mart
+          remains the same but you must include
+          the biscuit or Texas toast to let us
+
+          know the customer doesn't want it served
+          on the standard toast the last thing I
+          want to cover with sandwiches is the
+          mark 4 deluxe sometimes a customer wants
+          to add lettuce tomato or grilled onions
+          to a sandwich that doesn't automatically
+          come with them we call that sandwich
+          deluxe let's say that the customer wants
+          an egg cheese sandwich with lettuce
+          tomato and grilled onions the
+          salesperson would call in mark egg
+          cheese deluxe and you would mark it with
+          two pickles in the plain position a Mayo
+          pack to indicate the egg and a slice of
+          cheese a leaf of lettuce a slice of
+          tomato and a piece of diced onion what
+
+          the customer didn't want the grilled
+          onions on this sandwich easy
+          the salesperson would call in Mart egg
+          cheese deluxe hold the onion and you
+          would mark it the same way except you
+          would not put the piece of onion on the
+          plate many of our customers will want
+
+          bad hashbrowns to these sandwiches so
+          let's cover the basic markers for our
+          signature waffles hashbrowns to make an
+          item a plate which includes hashbrowns
+          you simply add a few shreds of
+          hashbrowns only platter with the marker
+          here I'll mark a bacon egg cheese plate
+
+          if a customer wants a single hash brown
+          on the side place a few shreds of hash
+          browns on the plate a double hash brown
+          goes on a waffle plate and a triple hash
+          brown will go on a platter if a customer
+          wants ingredients such as onions added
+          to the hashbrowns simply add a piece of
+          the add-on to the shreds of hashbrowns
+          like this
+          steamed hash browns are marked by adding
+          a butter cup to the shreds of the hash
+          browns and a hash brown all the way is
+          marked by adding a right-side up
+          dressing pack to the shred of hashbrowns
+          [Music]
+
+          now that we've covered most of our
+          breakfast items let's move on to our
+          dinners and major meat sandwiches all
+          major meat dinners automatically come
+          with hash browns and a piece of grilled
+          Texas toast our major meat and egg
+          dinners also automatically come with
+          hash browns but they include eggs and
+          white toast our steak meals require a
+          little extra work when marking because
+          we will show how well the customer wants
+          their steak cooked by where we place the
+          marker on the plate t-bone dinner medium
+          for instance is marked with the right
+          side up buttercup in the middle of the
+          plate and a few shreds of hash browns
+          how well the steak is cooked increases
+          the further up the plates you go so the
+          bottom of the plate is rare then up to
+          medium rare medium medium-well
+          and finally well done you don't have to
+          worry about positioning for chicken pork
+          chop and country ham as these are always
+          cooked well done major meats and eggs
+          are marked the same as the corresponding
+          dinner
+          except you must remember to mark the
+          eggs and toast here for example is
+          t-bone and eggs well done and over
+          medium wheat we just learned that a
+
+          t-bone is marked with the right side up
+          buttercup
+          but if we flip the Buttercup over we now
+          have the mark for a ribeye let's look at
+          the mustard Pat the right side up this
+          mustard pack represents pork chops while
+          upside down we've marked country ham a
+          right side up
+          ketchup pack is used to mark a sirloin
+          dinner
+          mayonnaise packs represents a quarter
+          pound hamburger when right side up and
+          chicken went upside down there are two
+
+          ways that a customer might add some
+          great flavor to their dinner or major
+          meat and eggs and that is by making them
+          southern classic or country classic
+          southern classic meals are marked using
+          the normal marker and adding an
+          upside-down dressing packet
+          country classic is easy as all you have
+          to do is place a piece of mushroom and
+          diced onion with the mark to remind you
+          to add onions and mushrooms with the
+          meat next I want to talk about our major
+          meat sandwiches probably the most common
+          major meat sandwich is our quarter pound
+          hamburger which we simply call quarter
+          quarters and all major meat sandwiches
+          come to luxe and should be marked the
+          same way we discussed earlier here I'll
+          show you how to mark a quarter deluxe
+          the marker is a right side up mayo pack
+          with lettuce tomato and a piece of onion
+          the chicken sandwich is another popular
+          menu item simply flip the Mayo pack
+          upside down and include deluxe items if
+
+          I switched out the Mayo pack for a
+          right-side up mustard pack we would have
+          a pork chop sandwich if we turn that
+          pack over like this we have the mark for
+          a country ham sandwich a ketchup pack
+          with deluxe setup lets us know that we
+          have a sirloin sandwich customers will
+          often want to add bacon to their major
+          meat sandwiches if this is the case a
+          half order of bacon is included on the
+          sandwich and the plate is to be marked
+          with a piece of chunked ham to represent
+          the bacon here you can see a bacon
+          quarter cheese deluxe originals are
+
+          great little burgers with their own
+          special way of preparation and marking
+          as they are not handled like major meat
+          sandwiches an original is marked with a
+          single pickle in the center of the plate
+          with a piece of onion on top of it if a
+          customer wants two patties the mark for
+          a double original would include one
+          pickle and two pieces of onion like this
+          [Music]
+
+          the final items we'll cover today are
+          waffles wraps and melts all sandwiches
+          can be served as a wrap and are marked
+          exactly as they would be for the
+          corresponding sandwich you simply add a
+          tortilla to the plate here's the mark
+          for a sausage egg cheese wrap notice the
+
+          egg marker is in the scramble position
+          because all wraps include scrambled eggs
+          a melt is a sandwich that is served with
+          grilled bread two slices of cheese and
+          grilled onions such as a patty Mountain
+          breakfast sandwiches can be served as
+          melts but they do not include onions to
+          mark them out
+          simply place the appropriate mark for
+          the meat and include the type of bread
+          to be grilled in the slices of cheese
+          with the mark here I'll mark a Texas
+          cheesesteak sandwich with the right side
+          up ketchup pack two slices of cheese and
+          two pieces of Texas toast well that's
+          all for today remember we didn't cover
+          every single mark that exists so if you
+          are unsure about any of the marks always
+          consult the Waffle House Way and always
+          wear gloves when handling ready-to-eat
+          foods such as many of our markers the
+          pull drop mark system is not only
+          mandatory here at the Waffle House it is
+          also a proven method for reducing stress
+          in the restaurant and providing
+          consistent delicious food for all of our
+          customers
+          [Music]
+          [Music]
+
+          hello my name is Greg Hall today we're
+          going to discuss the pull drop mark
+          calling system this system is the only
+          approved method for calling in marking
+          and preparing food at Waffle House the
+          pull drop mark Collin system is made up
+          of three basic steps the pull the drop
+          and the mark
+          [Music]
+          well 1/4 the poll refers to the number
+          and type of meats to be cooked
+          pull one bacon for example when instruct
+          the grill operator to pull three strips
+          of bacon from the refrigerator and place
+          it on the grill notice that I said one
+          bacon and not a bacon you must always
+          use an exact number these numbers refer
+          to the number of orders to be cooked and
+          not necessarily the number of pieces of
+          meat while you pull one t-bone when pull
+          one t-bone is called you would pull two
+          pieces of pork chop
+          when pull one porkchop is called because
+          one order of pork chops is actually two
+          chops how well a steak is prepared does
+          not need to be called in at this time
+          unless that steak is rare or medium-rare
+          the cooking instructions will come later
+          in the call in during the mark grill
+          operators go ahead and season all red
+          meats before you move on to the next
+          step one final thing to remember for the
+          pull if you have a sausage sandwich
+          it must be called in sausage for a
+          sandwich so that the two patties can be
+          pressed together to form a large sausage
+          sandwich patty
+          [Music]
+          one hashbrown scattered once a
+          salesperson has visually verified that
+          all the meats have been pulled to the
+          grill or to a plate on top of the cooks
+          board they will say drop to specify how
+          many scoops of hashbrowns to put on the
+          grill and whether they are scattered or
+          in the ring don't worry about any
+          toppings that go into the hashbrowns
+          whether they're double or triple at this
+          point that will come later in the mark
+          if all the hashbrowns are in the ring
+          the salesperson will say drop three
+          hashbrowns in the ring if none of the
+          hashbrowns are in the ring they'll say
+          drop three hashbrowns scattered if some
+          are in the ring and some are scattered
+          they'll only tell you the number that
+          are in the ring for example if they need
+          three hashbrowns and one is in the ring
+          they'll say drop three hashbrowns one in
+          the ring the drop is also a time where
+          the salesperson can let you know if the
+          customer wants the hashbrowns scattered
+          well or scattered light so a sales
+          person may say drop one hashbrowns
+          scattered well and this lets you know
+          that the customer wants their hashbrowns
+          cooked well they may also ask you to
+          drop one hashbrowns steam in that case
+          the sales person will bring you
+          half-full glass of ice and you'll
+          prepare those hashbrowns steamed under
+          the dome according to the Waffle House
+          Way
+          [Music]
+          mark Texas patty melt plate scattered
+          mother covered and peppered once a
+          salesperson has visually confirmed that
+          the meats have been pulled to the grill
+          and hash browns have been dropped they
+          will call in the full order this is
+          called the mark it is at this point that
+          the sales person will call all the
+          details of the order into you including
+          how steaks are to be cooked which hash
+          browns will be doubles or triples and
+          also any toppings that will go into the
+          hash browns this is where the magic
+          marker system begins as the sales person
+          calls in the order it is your job to
+          begin placing markers on the plates
+          using the special code that Waffle House
+          has designed to help you remember
+          exactly how everything is to be prepared
+          we call the system magic because our
+          customers often do not notice the
+          markers on the plates and think you have
+          memorized all of the orders that were
+          being called in in reality you're just
+          using our code to mark the orders so
+          that you can read the plates and get
+          orders prepared quickly and accurately
+          every time
+          Texas patty melt plate scattered
+          smothered covered and pepper thank you
+          now that you've got the marks on the
+          plates it's time for one last step in
+          the pulled drop mark system the callback
+          the salesperson will be watching you as
+          you Martin the plates and also waiting
+          for you to call back the order to make
+          sure you've got it exactly right don't
+          keep them waiting call back the order to
+          them as soon as you get it marked so
+          that they can get back to taking care of
+          the customer and you can get back to
+          cooking the food okay now that you
+
+          understand the basics of the pull drop
+          mark system I'll talk you through the
+          most common marks and show you how to
+          mark
+          [Music]
+          Waffle House is one of the world's
+          leading server of eggs so why don't we
+          talk about them first all of our egg
+          breakfasts are automatically served with
+          grits and white toast a customer may
+          choose to have a biscuit or possibly
+          wheat raisin or Texas toast instead and
+          can also substitute hashbrowns sliced
+          tomatoes or oatmeal for the grits let's
+          start off by marking an order scramble
+          simply place a right-side-up jelly pack
+          vertically in the bottom position of the
+          plate the jelly pack represents two eggs
+          which we call an order and the location
+          of the plate tells us that they are
+          scrambled with the plate marked like
+          this the customer is getting an order of
+          scrambled eggs with white toast in grits
+          if the customer would rather have
+          hashbrowns you simply add a few shreds
+          of hash browns to the plate for tomatoes
+          instead of grits simply add a slice of
+          tomato and for oatmeal instead of grits
+          simply add a napkin
+          with a brown sugar pack on top of it if
+          a customer wants their grits to be
+          served in a bowl you would indicate that
+          by placing a napkin on the plate as all
+          bowls on a plate must be served with a
+          napkin underneath to prevent sliding in
+          this order if the customer wants wheat
+          toast
+          we simply flip the jelly pack over to
+          indicate wheat we use a pack of apple
+          butter if the customer wants raisin
+          toast if the customer wants a slice of
+
+          Texas toast or a biscuit instead mark
+          the eggs with a jelly pack and place a
+          slice of Texas toast or a biscuit on the
+          plate to remind you that they prefer to
+          have Texas toast or a biscuit instead
+          some folks like to have their toast
+          unbuttered or dry in this case we have a
+          special mark to remind us to hold the
+          butter easily enough it's a butter
+          packet underneath the jelly packet like
+          this so what if a customer wants double
+          toast easy mark the eggs and then put an
+          additional jelly pack beside the egg
+          marker to indicate the extra order of
+          toast like this now that we've learned
+          some of the basics for marking eggs
+          let's look at some other
+          to keep in mind when marking egg orders
+          while most customers order two eggs
+          occasionally a customer may only want a
+          single egg in that case we'll mark the
+          egg in the appropriate position to show
+          how the egg is cooked and then placed a
+          ketchup pack below it in that case we'll
+          mark the egg in the appropriate position
+          to show how the egg is cooked and then
+          place a ketchup packet here you can see
+          that I've marked a single over light
+          breakfast in other cases a customer may
+          be hungry and might want three eggs to
+          mark a triple you'll mark the eggs with
+          the jelly pack in the appropriate
+          position and include a mustard pack
+          below the jelly pack here's an example
+
+          of how to mark a triple scramble if the
+          jelly pack indicates two eggs and how
+          might you mark the plate if a customer
+          wants four eggs that's right
+          you use two jelly pack stacked on top of
+          each other like this here's the mark
+          four four over medium one of those
+          popular ways to have eggs at the Waffle
+          House is scrambled so let's talk about
+          different ways to mark scrambled eggs
+          the mark for our signature scrambled
+          eggs with cheese is simple first mark
+          the eggs as scrambled like this and then
+          simply add slices of cheese it is
+          important to remember that the customer
+          gets one slice of cheese for each egg so
+          if the customer wants two eggs they get
+          two slices of cheese to make this a
+          triple scramble cheese you add the
+          mustard pack below the jelly pack to
+          make it a triple and add a third slice
+          of cheese you also want to tear off a
+
+          small corner of the cheese and place it
+          on the top of the marker to help you
+          remember that it comes with cheese if a
+          customer wants their egg scramble light
+          so they're a little runny mark the
+          scrambled eggs and include an
+          upside-down Mayo pack to indicate light
+          and remember to remove the marker before
+          you take the plate to the customer
+          well eggs are similar only you turn the
+          Mayo pack right-side up to show that
+          they want the scrambled eggs to be
+          cooked well next we'll look at how to
+
+          mark over light over medium and over
+          well eggs no Dover light is marked with
+          the jelly pack on the left side of the
+          plate like this an order over medium is
+          logically right in the middle of the
+          plate and an order of a well is all the
+          way to the right side of the plate
+          notice that the level of doneness for
+          the eggs increases from left to right
+          let's look at the last few types of eggs
+          available for the waffle house we refer
+          to sunny-side up eggs simply as up and
+          mark them by placing the marker up on
+          the top of the plate like this
+          occasionally a customer may ask for
+          their eggs to be basted which means
+          they're partially cooked on the grill
+          the mark for this is here just below the
+          up egg position poached eggs are another
+          less common order and these eggs are
+          made by cooking the egg whites and yolks
+          in boiling water the mark propos'd is
+          between the scrambled and over-medium
+          positions sometimes a customer may not
+          want the toast grits or anything else
+          other than their eggs these options are
+          very easy to mark here I'll mark an
+
+          order over well hold the grits notice
+
+          that I used a nine-inch waffle plate but
+          still mark the eggs the same way as if
+          it were on a platter this slightly
+          smaller plate is a visual reminder that
+          the customer doesn't want grits can you
+          guess how to mark those same over weigh
+          legs on the side that's right you'd use
+          the same marker only you'd place it on a
+          small plate to remind you that they do
+          not want toast or grits finally if a
+          customer wants to hold the toast you
+          simply place a butter knife on the plate
+
+          these rules for hold the grits hold the
+          toast and on the side apply to all egg
+          orders including omelets you may have
+          asked yourself why I made sure to keep
+          the jelly packs vertical when marking
+          the egg breakfast that's because if I
+          turn the pack horizontally like this it
+          means that this is now the mark for an
+          omelet there are four positions on the
+          plate to mark an omelet ham sausage
+          bacon and plain I'm going to show you an
+          easy way to remember them a horizontal
+          pack in the number one position here at
+          the top of the plate represents ham you
+          can remember ham is number one because a
+          side order of ham comes with one slice a
+          packet here on the right side in the
+          number two position is a sausage omelet
+          - sausage patties come per order and the
+          marker is in the number two position the
+          number three position is used to mark a
+          bacon omelet three strips in an order
+          and a mark in the number three position
+          the plain position is the only one left
+          and it's in the number four position
+          here on the left side of the plate
+          examples of omelettes that have a mark
+          in the number four position could be
+          omelets with no meat in them such as
+          cheese omelet or a mushroom omelet these
+          are marked using a horizontal jelly
+          packet in the number four position and a
+          piece of the corresponding ingredient
+          here you can see a cheese omelet also
+          the Fiesta omelet which is indicated by
+          a horizontal jelly pack with a right
+          side up salad dressing
+          pack underneath and a cheese steak
+
+          omelet which is marked with the right
+          side up ketchup packet two slices of
+          cheese and a jelly pack in the number
+          four position
+          [Music]
+
+          waffles are our namesake so of course we
+          need to learn how to mark them correctly
+          a regular waffle is marked using a
+          right-side up buttercup on the cooks
+          board to mark a pecan waffle simply turn
+          the Buttercup over like this chocolate
+          chip waffles are another favorite and
+          are easy to mark simply mark a regular
+          waffle and place a few pieces of
+          chocolate chip on top of the marker
+          sometimes a customer wants their waffle
+          lighter dark so we need to mark them
+          accordingly we marked the light and the
+          dark waffles the same way we marked the
+          light or well scrambled eggs using an
+          upside-down Mayo pack for light and a
+          right side up Mayo pack for dark looking
+          at the pack may help you remember which
+          is light and which is dark notice the
+          upside down has no text and is lighter
+          in color the label side looks darker
+          because of the text on it for those
+          hungry customers we offer a double
+          waffle which is marked by stacking the
+          butter cups on top of each other like
+          this finally if a sales person calls in
+          a waffle to go use it to go syrup packet
+          to remind you that it goes in it to go
+          play
+          [Music]
+
+          now let's talk about our breakfast
+          sandwiches just like omelettes these
+          sandwiches have the same four positions
+          ham sausage bacon and plain to mark a
+
+          sandwich place to pickle slices in the
+          appropriate position here you can see I
+          put two pickle slices in the number
+          three position which tells me this is a
+          bacon sandwich if I add a slice of
+          cheese to the plate I know this is a
+          bacon cheese sandwich to make this a
+          bacon egg and cheese sandwich I'll add
+          this right side up Mayo packet to the
+          right side of the plate
+          don't let this Mayo pack confuse you as
+          long as you see two pickles on the plate
+          you know this is a sandwich when marking
+          a sandwich
+          this Mayo pack and pickles means a
+          sandwich with eggs
+          if a customer wanted the eggs on their
+          sandwich to be scrambled instead of the
+          standard over well egg I'd move this
+          Mayo pack down to the bottom of the
+          plate to show that the egg is scrambled
+          so how would a market if the customer
+          wanted an egg and cheese sandwich that's
+          right I would put two pickles in the
+          plain position to show that there's no
+          meat add the slice of cheese and put the
+          Mayo pack here on the right side to show
+          that the egg is cooked over well what if
+          the customer wants to have a sandwich on
+          a biscuit or Texas toast the Mart
+          remains the same but you must include
+          the biscuit or Texas toast to let us
+
+          know the customer doesn't want it served
+          on the standard toast the last thing I
+          want to cover with sandwiches is the
+          mark 4 deluxe sometimes a customer wants
+          to add lettuce tomato or grilled onions
+          to a sandwich that doesn't automatically
+          come with them we call that sandwich
+          deluxe let's say that the customer wants
+          an egg cheese sandwich with lettuce
+          tomato and grilled onions the
+          salesperson would call in mark egg
+          cheese deluxe and you would mark it with
+          two pickles in the plain position a Mayo
+          pack to indicate the egg and a slice of
+          cheese a leaf of lettuce a slice of
+          tomato and a piece of diced onion what
+
+          the customer didn't want the grilled
+          onions on this sandwich easy
+          the salesperson would call in Mart egg
+          cheese deluxe hold the onion and you
+          would mark it the same way except you
+          would not put the piece of onion on the
+          plate many of our customers will want
+
+          bad hashbrowns to these sandwiches so
+          let's cover the basic markers for our
+          signature waffles hashbrowns to make an
+          item a plate which includes hashbrowns
+          you simply add a few shreds of
+          hashbrowns only platter with the marker
+          here I'll mark a bacon egg cheese plate
+
+          if a customer wants a single hash brown
+          on the side place a few shreds of hash
+          browns on the plate a double hash brown
+          goes on a waffle plate and a triple hash
+          brown will go on a platter if a customer
+          wants ingredients such as onions added
+          to the hashbrowns simply add a piece of
+          the add-on to the shreds of hashbrowns
+          like this
+          steamed hash browns are marked by adding
+          a butter cup to the shreds of the hash
+          browns and a hash brown all the way is
+          marked by adding a right-side up
+          dressing pack to the shred of hashbrowns
+          [Music]
+
+          now that we've covered most of our
+          breakfast items let's move on to our
+          dinners and major meat sandwiches all
+          major meat dinners automatically come
+          with hash browns and a piece of grilled
+          Texas toast our major meat and egg
+          dinners also automatically come with
+          hash browns but they include eggs and
+          white toast our steak meals require a
+          little extra work when marking because
+          we will show how well the customer wants
+          their steak cooked by where we place the
+          marker on the plate t-bone dinner medium
+          for instance is marked with the right
+          side up buttercup in the middle of the
+          plate and a few shreds of hash browns
+          how well the steak is cooked increases
+          the further up the plates you go so the
+          bottom of the plate is rare then up to
+          medium rare medium medium-well
+          and finally well done you don't have to
+          worry about positioning for chicken pork
+          chop and country ham as these are always
+          cooked well done major meats and eggs
+          are marked the same as the corresponding
+          dinner
+          except you must remember to mark the
+          eggs and toast here for example is
+          t-bone and eggs well done and over
+          medium wheat we just learned that a
+
+          t-bone is marked with the right side up
+          buttercup
+          but if we flip the Buttercup over we now
+          have the mark for a ribeye let's look at
+          the mustard Pat the right side up this
+          mustard pack represents pork chops while
+          upside down we've marked country ham a
+          right side up
+          ketchup pack is used to mark a sirloin
+          dinner
+          mayonnaise packs represents a quarter
+          pound hamburger when right side up and
+          chicken went upside down there are two
+
+          ways that a customer might add some
+          great flavor to their dinner or major
+          meat and eggs and that is by making them
+          southern classic or country classic
+          southern classic meals are marked using
+          the normal marker and adding an
+          upside-down dressing packet
+          country classic is easy as all you have
+          to do is place a piece of mushroom and
+          diced onion with the mark to remind you
+          to add onions and mushrooms with the
+          meat next I want to talk about our major
+          meat sandwiches probably the most common
+          major meat sandwich is our quarter pound
+          hamburger which we simply call quarter
+          quarters and all major meat sandwiches
+          come to luxe and should be marked the
+          same way we discussed earlier here I'll
+          show you how to mark a quarter deluxe
+          the marker is a right side up mayo pack
+          with lettuce tomato and a piece of onion
+          the chicken sandwich is another popular
+          menu item simply flip the Mayo pack
+          upside down and include deluxe items if
+
+          I switched out the Mayo pack for a
+          right-side up mustard pack we would have
+          a pork chop sandwich if we turn that
+          pack over like this we have the mark for
+          a country ham sandwich a ketchup pack
+          with deluxe setup lets us know that we
+          have a sirloin sandwich customers will
+          often want to add bacon to their major
+          meat sandwiches if this is the case a
+          half order of bacon is included on the
+          sandwich and the plate is to be marked
+          with a piece of chunked ham to represent
+          the bacon here you can see a bacon
+          quarter cheese deluxe originals are
+
+          great little burgers with their own
+          special way of preparation and marking
+          as they are not handled like major meat
+          sandwiches an original is marked with a
+          single pickle in the center of the plate
+          with a piece of onion on top of it if a
+          customer wants two patties the mark for
+          a double original would include one
+          pickle and two pieces of onion like this
+          [Music]
+
+          the final items we'll cover today are
+          waffles wraps and melts all sandwiches
+          can be served as a wrap and are marked
+          exactly as they would be for the
+          corresponding sandwich you simply add a
+          tortilla to the plate here's the mark
+          for a sausage egg cheese wrap notice the
+
+          egg marker is in the scramble position
+          because all wraps include scrambled eggs
+          a melt is a sandwich that is served with
+          grilled bread two slices of cheese and
+          grilled onions such as a patty Mountain
+          breakfast sandwiches can be served as
+          melts but they do not include onions to
+          mark them out
+          simply place the appropriate mark for
+          the meat and include the type of bread
+          to be grilled in the slices of cheese
+          with the mark here I'll mark a Texas
+          cheesesteak sandwich with the right side
+          up ketchup pack two slices of cheese and
+          two pieces of Texas toast well that's
+          all for today remember we didn't cover
+          every single mark that exists so if you
+          are unsure about any of the marks always
+          consult the Waffle House Way and always
+          wear gloves when handling ready-to-eat
+          foods such as many of our markers the
+          pull drop mark system is not only
+          mandatory here at the Waffle House it is
+          also a proven method for reducing stress
+          in the restaurant and providing
+          consistent delicious food for all of our
+          customers
+          [Music]
+      visualData: 97.80942451567302/641.15762091537/330/6//
+    '[moZfMWz7JwdlNle8uVLbJ]:comment "Comment"':
+      data:
+        backgroundColor: rgba(0,0,0,0.05)
+        color: rgba(255,255,255,1)
+        height: 600
+        text: >-
+          https://www.youtube.com/watch?v=Jky5ZXI0axc
+
+
+          I used 
+
+           let's strip down the transcript to its essentials, removing any superfluous explanations and focusing on direct instructions that an employee at Waffle House would need to know for executing the pull-drop-mark system effectively. This distilled guide will present the core of what's necessary in a clear, concise manner.
+
+           for the distillation
+
+
+           I'd like two eggs over easy with a steamed hash brown and a well done T bone steak.
+
+           Hey can I get a human foot with a side of stainless steel nails and a diet coke?
+
+           I'd like the bacon angus cheeseburger deluxe with a side of hash browns please.
+      visualData: 1003.6533616665431/1021.4758554162847/630/7//
+    '[u6BRydLFKsKqUpLmulVry]:ollamaChat "Ollama Generate"':
+      data:
+        additionalParameters: []
+        advancedOutputs: false
+        jsonMode: false
+        model: edisonzf2020d/starling-lm-7b-alpha-128k:latest
+        numPredict: 1024
+        outputFormat: ""
+        promptFormat: auto
+        stop: ""
+        useModelInput: false
+      visualData: 1587/377/280/2//
