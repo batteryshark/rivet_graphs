@@ -21,3 +21,7 @@ Some useful Rivet Graphs I've built to do stuff
 * run_python_code_v2: Executes input python script with a given python interpreter, returns output (UNSAFE - Requires 'Node" runner and shell execution). V2 doesn't create a tmpfile.
 
 * write_file_content: Given a full file path, uses shell execution to write the file to disk. (UNSAFE - Requires 'Node' runner)
+
+## Examples
+
+* wafflehouse: Order translator for Pull Drop Mark method from Wafflehouse
