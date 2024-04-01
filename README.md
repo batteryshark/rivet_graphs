@@ -14,6 +14,8 @@ Some useful Rivet Graphs I've built to do stuff
 
 * macos_popup: Uses shell execution to create a MacOS notification popup (UNSAFE - Requires 'Node' runner)
 
+* ollama_embedding: Basic REST API call for ollama embeddings.
+
 * path_exists: Uses shell execution to test if a given filesystem path exists (UNSAFE - Requires 'Node' runner)
   
 * run_python_code: Executes input python script and prints "result" variable, returns output. (UNSAFE - Requires 'Node' runner and Python plugin)
