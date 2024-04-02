@@ -10,6 +10,8 @@ Some useful Rivet Graphs I've built to do stuff
 
 * config_loader: Given a path to a file in 'dotenv' format, read variables and set them as globals.
 
+* merge_objects: Given two objects, deep merge them (works with subobjects).
+
 * mkdir: Uses shell execution to make a directory path (with -p) and handle if it already exists. (UNSAFE - Requires 'Node' runner)
 
 * macos_popup: Uses shell execution to create a MacOS notification popup (UNSAFE - Requires 'Node' runner)
