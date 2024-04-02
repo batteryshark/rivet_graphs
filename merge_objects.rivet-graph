@@ -1,0 +1,86 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: ILpzdTaIYgtPweaJ90sQc
+    name: merge_objects
+  nodes:
+    '[2lYmp3vQ1cNLLfS3GxP_L]:code "Merge Object"':
+      data:
+        code: >
+          function isObject(item) {
+              return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+          }
+
+
+          function deepMerge(target, source) {
+              if (isObject(target) && isObject(source)) {
+                  Object.keys(source).forEach(key => {
+                      if (isObject(source[key])) {
+                          if (!target[key]) {
+                              target[key] = {};
+                          }
+                          deepMerge(target[key], source[key]);
+                      } else {
+                          target[key] = source[key];
+                      }
+                  });
+              }
+              return target;
+          }
+
+          let mergedObject = deepMerge(inputs.object1, inputs.object2)
+
+          return {
+              output: {
+                  type: 'object',
+                  value: mergedObject.value
+              }
+          };
+        inputNames:
+          - object1
+          - object2
+        outputNames:
+          - output
+      visualData: 805/505/230/4//
+    '[IGgTqvLbk9Xyto8UG9NPo]:object "Object"':
+      data:
+        jsonTemplate: |-
+          {
+            "a":1,
+            "b":2,
+            "c":3,
+            "g":{"test":"example1", "test2":"example3"}
+          }
+      outgoingConnections:
+        - output->"Graph Input" ct1MYsk9QOWZ-93Ca_xGi/default
+      visualData: 16/452/230/3//
+    '[ct1MYsk9QOWZ-93Ca_xGi]:graphInput "Graph Input"':
+      data:
+        dataType: object
+        id: object_1
+        useDefaultValueInput: true
+      outgoingConnections:
+        - data->"Merge Object" 2lYmp3vQ1cNLLfS3GxP_L/object1
+      visualData: 320/452/330/1//
+    '[kze85NP2DAnlRCfVaaqkS]:graphInput "Graph Input"':
+      data:
+        dataType: object
+        id: object_2
+        useDefaultValueInput: true
+      outgoingConnections:
+        - data->"Merge Object" 2lYmp3vQ1cNLLfS3GxP_L/object2
+      visualData: 320/652/330/1//
+    '[mPLVBl8YVm-w8cG15igXj]:object "Object"':
+      data:
+        jsonTemplate: |-
+          {
+            "c":5,
+            "d":6,
+            "e":7,
+            "f":8,
+            "g":{"test":"example2"}
+          }
+      outgoingConnections:
+        - output->"Graph Input" kze85NP2DAnlRCfVaaqkS/default
+      visualData: 16/652/230/3//
