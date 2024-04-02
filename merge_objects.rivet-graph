@@ -42,7 +42,14 @@ data:
           - object2
         outputNames:
           - output
+      outgoingConnections:
+        - output->"Graph Output" 7JV_fzEMOOyLuHIKAiVRB/value
       visualData: 805/505/230/4//
+    '[7JV_fzEMOOyLuHIKAiVRB]:graphOutput "Graph Output"':
+      data:
+        dataType: object
+        id: merged_object
+      visualData: 1212/680/330/null//
     '[IGgTqvLbk9Xyto8UG9NPo]:object "Object"':
       data:
         jsonTemplate: |-
